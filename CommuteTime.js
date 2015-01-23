@@ -33,10 +33,10 @@ if (Meteor.isClient) {
             var commuteTimeEvent = {
                 "source": config.appName,
                 "version": config.appVersion,
-                "objectTags": ["commute time", "bus", "tube", "train", "walk", "work", "journey"],
+                "objectTags": ["self", "report"],
                 "actionTags": ["commute", "travel"],
                 "properties": {
-                    "duration": parseInt(commuteTimeInput.val())
+                    "duration": parseInt(commuteTimeInput.val() * 60)
                 }
             };
             
@@ -61,9 +61,9 @@ if (Meteor.isClient) {
   Template.selectVisualizations.events({
         'click #commuteTimeViz': function () {
             var url = lib1self.visualize(window.localStorage.streamId, window.localStorage.readToken)
-                .objectTags(["commute time", "bus", "tube", "train", "walk", "work", "journey"])
+                .objectTags(["self", "report"])
                 .actionTags(["commute", "travel"])
-                .sum("volume")
+                .sum("duration")
                 .barChart()
                 .backgroundColor("84c341")
                 .url();
