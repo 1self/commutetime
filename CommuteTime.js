@@ -6,7 +6,7 @@ if (Meteor.isClient) {
         "appVersion": "0.0.1"
     };
 
-  var lib1self = new Lib1self(config, "sandbox");
+  var lib1self = new Lib1self(config, Meteor.settings.public.env1self);
 
   Meteor.startup(function () {
         var isStreamRegistered = function () {
