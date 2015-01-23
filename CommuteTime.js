@@ -36,7 +36,7 @@ if (Meteor.isClient) {
                 "objectTags": ["commute time", "bus", "tube", "train", "walk", "work", "journey"],
                 "actionTags": ["commute", "travel"],
                 "properties": {
-                    "volume": parseInt(commuteTimeInput.val())
+                    "duration": parseInt(commuteTimeInput.val())
                 }
             };
             
